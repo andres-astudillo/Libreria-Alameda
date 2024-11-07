@@ -3,6 +3,7 @@ import BBDD from "../config/firebase";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+// Funcion para listar todos los productos
 const ProductList = () => {
     const [products, setProducts] = useState([]);
     useEffect(() => {
@@ -15,32 +16,27 @@ const ProductList = () => {
     }, []);
 
     return (
-        <div className="container mx-auto p-4">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                {products.map((product) => (
-                    <div 
-                        key={product.id} 
-                        className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
-                    >
-                        <div className="w-full h-48 bg-gray-200 overflow-hidden">
-                            <img
-                                alt={product.imageAlt}
-                                src={product.imageSrc}
-                                className="object-cover w-full h-full"
-                            />
-                        </div>
-                        <div className="p-4">
-                            <h3 className="text-lg font-bold text-blue-800">
-                                <Link to={`/detalledelproducto/${product.id}`} className="hover:underline">
-                                    {product.title}
-                                </Link>
-                            </h3>
-                            <p className="text-gray-600">{product.author}</p>
-                            <p className="text-blue-600 font-semibold mt-2">$ {product.price}</p>
-                        </div>
+        <div className="grid grid-cols-2 gap-4 p-4 sm:grid-cols-3 md:grid-cols-4">
+            {products.map((product) => (
+                <div key={product.id} className="bg-white shadow-md rounded-lg overflow-hidden transform scale-90">
+                    <div className="w-40 h-40">
+                        <img
+                            alt={product.imageAlt}
+                            src={product.img}
+                            className="w-full h-full object-cover aspect-[258/346]"
+                        />
                     </div>
-                ))}
-            </div>
+                    <div className="p-2">
+                        <h3 className="text-sm font-semibold text-gray-800">
+                            <Link to={`/detalledelproducto/${product.id}`}>
+                                {product.title}
+                            </Link>
+                        </h3>
+                        <p className="text-xs text-gray-600">{product.author}</p>
+                        <p className="text-blue-600 font-bold text-sm">$ {product.price}</p>
+                    </div>
+                </div>
+            ))}
         </div>
     );
 };

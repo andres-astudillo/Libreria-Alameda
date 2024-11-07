@@ -33,18 +33,27 @@ const ProductDetail = () => {
     return (
         <div className="container mx-auto p-6">
             {item ? (
-                <div className="bg-white rounded-lg shadow-md p-6">
-                    <h1 className="text-2xl font-bold text-blue-800 mb-4">{item.title}</h1>
-                    <p className="text-lg text-gray-700 mb-2">Autor: {item.author}</p>
-                    <p className="text-md text-gray-600 mb-2">Tipo: {item.type}</p>
-                    <p className="text-md text-gray-700 mb-4">{item.description}</p>
-                    <p className="text-xl font-semibold text-blue-600 mb-4">$ {item.price}</p>
-                    <button 
-                        onClick={handleEditClick} 
-                        className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-300"
-                    >
-                        Editar
-                    </button>
+                <div className="bg-white rounded-lg shadow-md p-6 flex flex-col md:flex-row items-center">
+                    <div className="md:w-1/3 mb-4 md:mb-0">
+                        <img
+                            src={item.img}
+                            alt={item.img}
+                            className="w-full h-auto rounded-lg shadow-md object-cover"
+                        />
+                    </div>
+                    <div className="md:w-2/3 md:ml-6">
+                        <h1 className="text-2xl font-bold text-blue-800 mb-4">{item.title}</h1>
+                        <p className="text-lg text-gray-700 mb-2">Autor: {item.author}</p>
+                        <p className="text-md text-gray-600 mb-2">Tipo: {item.type}</p>
+                        <p className="text-md text-gray-700 mb-4">{item.description}</p>
+                        <p className="text-xl font-semibold text-blue-600 mb-4">$ {item.price}</p>
+                        <button 
+                            onClick={handleEditClick} 
+                            className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-300"
+                        >
+                            Editar
+                        </button>
+                    </div>
                 </div>
             ) : (
                 <p className="text-center text-gray-500">Cargando...</p>
