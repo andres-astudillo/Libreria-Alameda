@@ -2,14 +2,15 @@ import { useEffect, useState } from "react";
 import { doc, getDoc } from "firebase/firestore";
 import BBDD from "../../../config/firebase.js";
 import { useNavigate, useParams } from "react-router-dom";
+import { useCart } from "../../../context/CartContext.js";
 
-// Simulación de estado de autenticación (reemplazar según tu lógica de autenticación)
-const isAdmin = false; // Cambiar esto según el estado de autenticación real
+const isAdmin = false;
 
 const ProductDetail = () => {
     const { id } = useParams();
     const [item, setItem] = useState(null);
     const navigate = useNavigate();
+    const { addToCart } = useCart();
 
     useEffect(() => {
         const fetchItem = async () => {
@@ -34,8 +35,8 @@ const ProductDetail = () => {
     };
 
     const handleBuyClick = () => {
+        addToCart(item);
         navigate("/cart");
-        // Puedes agregar aquí una función que añada el producto al carrito
     };
 
     return (

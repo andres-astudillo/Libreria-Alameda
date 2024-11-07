@@ -6,21 +6,24 @@ import AddItem from './App/ItemDetailContainer/ItemDetail/AddItem';
 import NavBar from './App/NavBar/NavBar';
 import Footer from './App/Footer/Footer';
 import UpdateItem from './App/ItemDetailContainer/ItemDetail/UpdateItem';
+import { CartProvider } from './context/CartContext';
 
 function App() {
 
   return (
-    <div className="flex flex-col min-h-screen">  
-      <Router>
-        < NavBar />
-        <Routes>
-          <Route path="/" element={< ProductList />} />
-          <Route path="/detalledelproducto/:id" element={< ItemDetail />} />
-          <Route path="/nuevoproducto/" element={< AddItem />} />
-          <Route path="/editarproducto/:id" element={< UpdateItem />} />
-        </Routes>
-        < Footer />
-      </Router>
+    <div className="flex flex-col min-h-screen">
+      <CartProvider>
+        <Router>
+          < NavBar />
+          <Routes>
+            <Route path="/" element={< ProductList />} />
+            <Route path="/detalledelproducto/:id" element={< ItemDetail />} />
+            <Route path="/nuevoproducto/" element={< AddItem />} />
+            <Route path="/editarproducto/:id" element={< UpdateItem />} />
+          </Routes>
+          < Footer />
+        </Router>
+      </CartProvider>
     </div>
   );
 }
