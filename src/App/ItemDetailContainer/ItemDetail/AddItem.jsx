@@ -1,5 +1,5 @@
 import { addDoc, collection } from "firebase/firestore";
-import BBDD from "../config/firebase";
+import BBDD from "../../../config/firebase.js";
 import { useState } from "react";
 
 const AddProduct = () => {

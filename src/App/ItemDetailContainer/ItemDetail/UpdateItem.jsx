@@ -1,5 +1,5 @@
 import { doc, getDoc, updateDoc } from "firebase/firestore";
-import BBDD from "../config/firebase";
+import BBDD from "../../../config/firebase.js";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 

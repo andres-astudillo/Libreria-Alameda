@@ -1,11 +1,11 @@
 import './App.css'
-import ProductList from './components/ProductList';
-import ProductDetail from './components/ProductDetail';
+import ProductList from './App/ItemListContainer/ItemList/ItemList';
+import ItemDetail from './App/ItemDetailContainer/ItemDetail/ItemDetail';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import AddProduct from './components/AddProduct';
-import NavBar from './components/NavBar';
-import Footer from './components/Footer';
-import UpdateProduct from './components/UpdateProduct';
+import AddItem from './App/ItemDetailContainer/ItemDetail/AddItem';
+import NavBar from './App/NavBar/NavBar';
+import Footer from './App/Footer/Footer';
+import UpdateItem from './App/ItemDetailContainer/ItemDetail/UpdateItem';
 
 function App() {
 
@@ -15,9 +15,9 @@ function App() {
         < NavBar />
         <Routes>
           <Route path="/" element={< ProductList />} />
-          <Route path="/detalledelproducto/:id" element={< ProductDetail />} />
-          <Route path="/nuevoproducto/" element={< AddProduct />} />
-          <Route path="/editarproducto/:id" element={< UpdateProduct />} />
+          <Route path="/detalledelproducto/:id" element={< ItemDetail />} />
+          <Route path="/nuevoproducto/" element={< AddItem />} />
+          <Route path="/editarproducto/:id" element={< UpdateItem />} />
         </Routes>
         < Footer />
       </Router>

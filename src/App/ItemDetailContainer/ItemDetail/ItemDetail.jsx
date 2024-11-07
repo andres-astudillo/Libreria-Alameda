@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 import { doc, getDoc } from "firebase/firestore";
-import BBDD from "../config/firebase";
+import BBDD from "../../../config/firebase.js";
 import { useNavigate, useParams } from "react-router-dom";
+
+// Simulación de estado de autenticación (reemplazar según tu lógica de autenticación)
+const isAdmin = false; // Cambiar esto según el estado de autenticación real
 
 const ProductDetail = () => {
     const { id } = useParams();
@@ -30,6 +33,11 @@ const ProductDetail = () => {
         navigate(`/editarproducto/${id}`);
     };
 
+    const handleBuyClick = () => {
+        navigate("/cart");
+        // Puedes agregar aquí una función que añada el producto al carrito
+    };
+
     return (
         <div className="container mx-auto p-6">
             {item ? (
@@ -47,12 +55,21 @@ const ProductDetail = () => {
                         <p className="text-md text-gray-600 mb-2">Tipo: {item.type}</p>
                         <p className="text-md text-gray-700 mb-4">{item.description}</p>
                         <p className="text-xl font-semibold text-blue-600 mb-4">$ {item.price}</p>
-                        <button 
-                            onClick={handleEditClick} 
-                            className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-300"
-                        >
-                            Editar
-                        </button>
+                        {isAdmin ? (
+                            <button 
+                                onClick={handleEditClick} 
+                                className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-300"
+                            >
+                                Editar
+                            </button>
+                        ) : (
+                            <button 
+                                onClick={handleBuyClick} 
+                                className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors duration-300"
+                            >
+                                Comprar
+                            </button>
+                        )}
                     </div>
                 </div>
             ) : (
