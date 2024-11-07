@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { doc, getDoc } from "firebase/firestore";
 import BBDD from "../../../config/firebase.js";
 import { useNavigate, useParams } from "react-router-dom";
-import { useCart } from "../../../context/CartContext.js";
+import { useCart } from "../../../context/CartContext.jsx";
 
 const isAdmin = false;
 
