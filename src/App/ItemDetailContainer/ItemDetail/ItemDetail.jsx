@@ -36,7 +36,6 @@ const ProductDetail = () => {
 
     const handleBuyClick = () => {
         addToCart(item);
-        navigate("/cart");
     };
 
     return (
