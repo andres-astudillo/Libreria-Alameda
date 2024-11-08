@@ -56,15 +56,15 @@ const ProductDetail = () => {
                         <p className="text-md text-gray-700 mb-4">{item.description}</p>
                         <p className="text-xl font-semibold text-blue-600 mb-4">$ {item.price}</p>
                         {isAdmin ? (
-                            <button 
-                                onClick={handleEditClick} 
+                            <button
+                                onClick={handleEditClick}
                                 className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-300"
                             >
                                 Editar
                             </button>
                         ) : (
-                            <button 
-                                onClick={handleBuyClick} 
+                            <button
+                                onClick={handleBuyClick}
                                 className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors duration-300"
                             >
                                 Comprar

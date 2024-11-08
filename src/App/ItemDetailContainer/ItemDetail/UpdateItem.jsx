@@ -113,8 +113,8 @@ const UpdateProduct = () => {
                     className="mt-1 w-full p-2 border border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none"
                 />
             </label>
-            <button 
-                type="submit" 
+            <button
+                type="submit"
                 className="w-full bg-blue-600 text-white py-2 rounded-lg font-semibold hover:bg-blue-700 transition duration-300"
             >
                 Actualizar Libro

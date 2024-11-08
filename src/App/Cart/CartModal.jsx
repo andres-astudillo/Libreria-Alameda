@@ -4,7 +4,6 @@ import { CartContext } from "../../context/CartContext";
 const CartModal = ({ isOpen, toggleCartModal }) => {
     const { cart } = useContext(CartContext);
 
-    // Calcular el total
     const calculateTotal = () => {
         return cart.reduce((total, item) => total + item.price * item.quantity, 0);
     };
@@ -25,7 +24,7 @@ const CartModal = ({ isOpen, toggleCartModal }) => {
                     <span>Total:</span>
                     <span>${calculateTotal().toFixed(2)}</span>
                 </div>
-                <button 
+                <button
                     className="mt-4 bg-green-600 text-white px-4 py-2 rounded-lg w-full hover:bg-green-700 transition-colors duration-300"
                     onClick={toggleCartModal}
                 >

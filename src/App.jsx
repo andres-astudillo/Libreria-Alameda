@@ -11,27 +11,27 @@ import CartModal from './App/Cart/CartModal';
 import { useState } from 'react';
 
 function App() {
-    const [isCartOpen, setIsCartOpen] = useState(false);
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
-    const toggleCartModal = () => {
-        setIsCartOpen(!isCartOpen);
-    };
+  const toggleCartModal = () => {
+    setIsCartOpen(!isCartOpen);
+  };
 
-    return (
-        <CartProvider>
-            <Router>
-                <NavBar toggleCartModal={toggleCartModal} />
-                <Routes>
-                    <Route path="/" element={<ItemList />} />
-                    <Route path="/detalledelproducto/:id" element={<ItemDetail />} />
-                    <Route path="/nuevoproducto/" element={<AddItem />} />
-                    <Route path="/editarproducto/:id" element={<UpdateItem />} />
-                </Routes>
-                <Footer />
-                <CartModal isOpen={isCartOpen} toggleCartModal={toggleCartModal} />
-            </Router>
-        </CartProvider>
-    );
+  return (
+    <CartProvider>
+      <Router>
+        <NavBar toggleCartModal={toggleCartModal} />
+        <Routes>
+          <Route path="/" element={<ItemList />} />
+          <Route path="/detalledelproducto/:id" element={<ItemDetail />} />
+          <Route path="/nuevoproducto/" element={<AddItem />} />
+          <Route path="/editarproducto/:id" element={<UpdateItem />} />
+        </Routes>
+        <Footer />
+        <CartModal isOpen={isCartOpen} toggleCartModal={toggleCartModal} />
+      </Router>
+    </CartProvider>
+  );
 }
 
 export default App;
