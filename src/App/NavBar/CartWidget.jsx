@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const CartWidget = () => {
-    const [item, setCart] = useState([]);
+    const [cartItem, setCart] = useState([]);
 
     const addToCart = (item) => {
         setCart((prevCart) => {
